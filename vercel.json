@@ -1,0 +1,62 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "*.php",
+      "use": "vercel-php"
+    },
+    {
+      "src": "images/*.php",
+      "use": "vercel-php"
+    },
+    {
+      "src": "images/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/images/(.*\\.php)$",
+      "dest": "/images/$1"
+    },
+    {
+      "src": "/images/(.*)",
+      "dest": "/images/$1"
+    },
+    {
+      "src": "/image_proxy\\.php",
+      "dest": "/image_proxy.php"
+    },
+    {
+      "src": "/imgshare_diag\\.php",
+      "dest": "/imgshare_diag.php"
+    },
+    {
+      "src": "/upload8_api\\.php",
+      "dest": "/upload8_api.php"
+    },
+    {
+      "src": "/upload8_api_lib\\.php",
+      "dest": "/upload8_api_lib.php"
+    },
+    {
+      "src": "/upload_proxy\\.php",
+      "dest": "/upload_proxy.php"
+    },
+    {
+      "src": "/(.*)\\.php",
+      "dest": "/$1.php"
+    },
+    {
+      "src": "/",
+      "dest": "/index.php"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.php"
+    }
+  ],
+  "env": {
+    "PHP_INI_SCAN_DIR": "/var/task"
+  }
+}
