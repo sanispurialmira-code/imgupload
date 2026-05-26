@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# .htaccess untuk img.vidshare.my.id
+# .htaccess untuk https://imgupload-delta.vercel.app/
 # Letakkan di root direktori server (sama dengan image_proxy.php)
 # ─────────────────────────────────────────────────────────────────────────────
 
