@@ -1,0 +1,26 @@
+{
+  "name": "beritatkp-imgshare",
+  "version": "1.0.0",
+  "description": "Image sharing and proxy service for img.beritatkp.com",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'PHP project - no build step needed'",
+    "deploy": "vercel --prod",
+    "deploy:preview": "vercel"
+  },
+  "devDependencies": {
+    "vercel": "^34.0.0"
+  },
+  "engines": {
+    "node": ">=18.x"
+  },
+  "keywords": [
+    "php",
+    "image-proxy",
+    "image-share",
+    "vercel"
+  ],
+  "author": "dwinurmijayanto",
+  "license": "MIT"
+}
