@@ -1,4 +1,6 @@
 <?php
+error_reporting(0);
+ini_set("display_errors","0");
 /**
  * ╔══════════════════════════════════════════════════════════════════╗
  * ║  ImgShare Upload API — powered by private storage backend       ║
@@ -142,7 +144,6 @@ $httpCode     = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 $headerSize   = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
 $effectiveUrl = curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
 $curlError    = curl_error($ch);
-curl_close($ch);
 
 if ($curlError) {
     http_response_code(502);
@@ -185,7 +186,6 @@ if (!$uploadPageUrl) {
         $r2  = curl_exec($ch2);
         $hs2 = curl_getinfo($ch2, CURLINFO_HEADER_SIZE);
         $eu2 = curl_getinfo($ch2, CURLINFO_EFFECTIVE_URL);
-        curl_close($ch2);
 
         $uploadPageUrl = extractUploadPage($eu2, substr($r2, 0, $hs2), substr($r2, $hs2), $disc);
         if ($uploadPageUrl) {
@@ -412,6 +412,5 @@ function httpGet(string $url, array $extraHeaders = []): ?string
     ]);
     $body = curl_exec($ch);
     $err  = curl_error($ch);
-    curl_close($ch);
     return ($err || $body === false) ? null : $body;
 }
