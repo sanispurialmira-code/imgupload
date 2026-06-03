@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ImgTKP — Free Image Hosting</title>
+<title>Img VidSHARE — Free Image Hosting</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -166,7 +166,7 @@ textarea::placeholder{color:var(--mu2);}
           <path d="M14 18l3-4 3 4" fill="#47c8ff" opacity=".7"/>
         </svg>
       </div>
-      <span class="ln">Img<span>TKP</span></span>
+      <span class="ln">Img<span>VidSHARE</span></span>
     </div>
     <p class="tg">Free Image Hosting · Upload via URL atau File · Direct Link</p>
   </div>
