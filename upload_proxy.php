@@ -32,7 +32,12 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 // ── Konfigurasi ────────────────────────────────────────────────────────────
 $_all_hdrs  = getallheaders();
-$_host      = $_SERVER['HTTP_HOST'] ?? 'imgupload-one.vercel.app';
+$_host = $_SERVER['HTTP_HOST'] ?? '';
+if (empty($_host)) {
+    http_response_code(500);
+    echo json_encode(['success' => false, 'error' => 'Host tidak terdeteksi.']);
+    exit;
+}
 
 $_fwd_proto = $_all_hdrs['X-Forwarded-Proto'] 
               ?? $_SERVER['HTTP_X_FORWARDED_PROTO'] 
