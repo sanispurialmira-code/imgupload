@@ -32,8 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 // ── Konfigurasi ────────────────────────────────────────────────────────────
 $_all_hdrs  = getallheaders();
-$_cf_worker = $_all_hdrs['Cf-Worker'] ?? null;
-$_host      = $_cf_worker ? 'img.' . $_cf_worker : ($_SERVER['HTTP_HOST'] ?? 'img.beritatkp.com');
+$_host      = $_SERVER['HTTP_HOST'] ?? 'imgupload-one.vercel.app';
 
 $_fwd_proto = $_all_hdrs['X-Forwarded-Proto'] 
               ?? $_SERVER['HTTP_X_FORWARDED_PROTO'] 
