@@ -31,10 +31,16 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // ── Konfigurasi ────────────────────────────────────────────────────────────
-$_protocol  = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https' : 'http';
 $_all_hdrs  = getallheaders();
 $_cf_worker = $_all_hdrs['Cf-Worker'] ?? null;
 $_host      = $_cf_worker ? 'img.' . $_cf_worker : ($_SERVER['HTTP_HOST'] ?? 'img.beritatkp.com');
+
+$_fwd_proto = $_all_hdrs['X-Forwarded-Proto'] 
+              ?? $_SERVER['HTTP_X_FORWARDED_PROTO'] 
+              ?? '';
+$_protocol  = ($_fwd_proto === 'https' || (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on'))
+              ? 'https' : 'http';
+
 define('PUBLIC_CDN',     $_protocol . '://' . $_host . '/images');
 define('BACKEND_UPLOAD', 'https://8upload.com/upload/mt/');
 define('BACKEND_BASE',   'https://8upload.com');
